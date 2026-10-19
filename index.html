@@ -1,0 +1,269 @@
+<!-- Načítanie nádherného kaligrafického fontu z Google Fonts --> 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> 
+
+<!-- Celý obal zmenšený na polovicu strany (width: 50%), zarovnaný na stred (margin: 0 auto) a s pozadím #331d14 --> 
+<div style="width: 50%; margin: 0 auto; background-color: #331d14; padding: 25px 20px 15px 20px; border-radius: 8px; box-sizing: border-border-box;"> 
+
+<div style="width: 100%; margin-bottom: 1.5rem; text-align: center;"> 
+    <!-- Horná čiara v presnom odtieni červenej --> 
+    <div style="width: 100%; height: 16px; background-color: #c91a1a; border-radius: 2px; box-shadow: 0 3px 8px rgba(0,0,0,0.4); margin-bottom: 0.4rem;"></div> 
+    
+    <!-- Grafický nadpis (Domáca úloha) --> 
+    <img src="https://i.ibb.co/tpRGV4pL/nadpis.png" alt="nadpis" border="0" style="max-width: 60%; height: auto; display: inline-block; margin-bottom: 0.5rem; border-radius: 4px;" /> 
+
+    <!-- Nadpis: Pravidlá pre vypracovanie (vľavo, s dvojbodkou, podčiarknutý, menší) --> 
+    <div style="max-width: 90%; margin: 0 auto 0.6rem auto; text-align: left;"> 
+        <h3 style="color: #c91a1a; font-size: 1.5rem; font-family: 'Great Vibes', cursive; margin: 0; padding-bottom: 3px; border-bottom: 1px solid #c91a1a; display: inline-block; letter-spacing: 0.5px;">Pravidlá pre vypracovanie:</h3> 
+    </div> 
+
+    <!-- Pravidlá s hustejším riadkovaním --> 
+    <div style="text-align: justify; max-width: 90%; margin: 0 auto; line-height: 1.15; color: #d8b37e;"> 
+        <p style="margin-bottom: 0.25rem;"><font size="+1" color="#c91a1a"><b>•</b></font> Domáce úlohy sú <font color="#c91a1a"><b>dobrovoľné</b></font> (za ich nevypracovanie nedostanete trolla)</p> 
+        <p style="margin-bottom: 0.25rem;"><font size="+1" color="#c91a1a"><b>•</b></font> Na známku môžete odovzdať len <font color="#c91a1a"><b>jedno</b></font> z ponúknutých zadaní</p> 
+        <p style="margin-bottom: 0;"><font size="+1" color="#c91a1a"><b>•</b></font> Ak rovnako kvalitne spracujte <font color="#c91a1a"><b>dve zadania</b></font>, za druhé dostanete <font color="#c91a1a"><b>+. Tri pluská = Vynikajíci.</b></font></p> 
+    </div> 
+
+    <!-- Jednotný rozostup nad oddeľovačom --> 
+    <br><br> 
+    <!-- Kvetinový oddeľovač --> 
+    <center><img src="https://i.ibb.co/7NWVySB/delitko.png" width=75% border="0" /></center><br>
+    <!-- Jednotný rozostup pod oddeľovačom --> 
+    <br><br> 
+
+    <!-- CSS štýly – kompaktné štvorce + kaligrafický font + luxusný gradient --> 
+    <style> 
+        .ukol-input { display: none; } 
+         
+        /* Kompaktný štvorec (85x85px pre lepšie zmestnenie na polovicu strany) */ 
+        .ukol-card { 
+            width: 85px; height: 85px; 
+            border: 3px solid #c91a1a; 
+            background-color: #faf9f6; 
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between; 
+            padding: 8px 5px; box-sizing: border-box; position: relative; cursor: pointer; 
+            transition: all 0.35s ease; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04); 
+        } 
+        .ukol-card:hover { 
+            box-shadow: 0 6px 18px rgba(201,26,26,0.15); 
+            transform: translateY(-2px); 
+        } 
+
+        .obsah-zlozka { display: none; margin-top: 1.5rem; text-align: left; } 
+
+        /* AKTÍVNY STAV: Pevný červený rám + hlboký červeno-zlatý gradient vnútri */ 
+        #cb1:checked ~ .grid-container #card1, 
+        #cb2:checked ~ .grid-container #card2, 
+        #cb3:checked ~ .grid-container #card3, 
+        #cb4:checked ~ .grid-container #card4 { 
+            background: linear-gradient(135deg, #2b1111 0%, #752020 50%, #381515 100%); 
+            border-color: #c91a1a; 
+            box-shadow: inset 0 0 12px rgba(0,0,0,0.4), 0 6px 20px rgba(201,26,26,0.25); 
+        } 
+         
+        /* Zmena farby kaligrafického textu a erbu na zlatú pri kliknutí */ 
+        #cb1:checked ~ .grid-container #card1 span, 
+        #cb2:checked ~ .grid-container #card2 span, 
+        #cb3:checked ~ .grid-container #card3 span, 
+        #cb4:checked ~ .grid-container #card4 span { 
+            color: #ffd700 !important; 
+        } 
+         
+        #cb1:checked ~ .grid-container #card1 img, 
+        #cb2:checked ~ .grid-container #card2 img, 
+        #cb3:checked ~ .grid-container #card3 img, 
+        #cb4:checked ~ .grid-container #card4 img { 
+            filter: brightness(0.9) saturate(0.8) sepia(1); 
+        } 
+         
+        #cb1:checked ~ .grid-container #card1 .ciarka, 
+        #cb2:checked ~ .grid-container #card2 .ciarka, 
+        #cb3:checked ~ .grid-container #card3 .ciarka, 
+        #cb4:checked ~ .grid-container #card4 .ciarka { 
+            background-color: #ffd700 !important; 
+            opacity: 0.9; 
+        } 
+
+        /* Plynulé otvorenie okna */ 
+        #cb1:checked ~ .obsah-zlozka-1, 
+        #cb2:checked ~ .obsah-zlozka-2, 
+        #cb3:checked ~ .obsah-zlozka-3, 
+        #cb4:checked ~ .obsah-zlozka-4 { 
+            display: block; 
+            animation: fadeInLux 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+        } 
+
+        @keyframes fadeInLux { 
+            from { opacity: 0; transform: translateY(-6px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        } 
+
+        /* Štýly pre tooltipy */ 
+        .tooltip-container { 
+            position: relative; 
+            display: inline-block; 
+        } 
+        .tooltip-text { 
+            visibility: hidden; 
+            background-color: #c91a1a; 
+            color: #ffd700; 
+            text-align: center; 
+            border-radius: 4px; 
+            padding: 4px 8px; 
+            position: absolute; 
+            z-index: 1; 
+            bottom: 125%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            white-space: nowrap; 
+            font-size: 0.75rem; 
+            font-family: sans-serif; 
+            opacity: 0; 
+            transition: opacity 0.3s; 
+            border: 1px solid #ffd700; 
+        } 
+        .tooltip-container:hover .tooltip-text { 
+            visibility: visible; 
+            opacity: 1; 
+        } 
+    </style> 
+
+    <!-- Neviditeľné prepínače --> 
+    <input type="radio" id="cb1" name="ukol-group" class="ukol-input"> 
+    <input type="radio" id="cb2" name="ukol-group" class="ukol-input"> 
+    <input type="radio" id="cb3" name="ukol-group" class="ukol-input"> 
+    <input type="radio" id="cb4" name="ukol-group" class="ukol-input"> 
+
+    <!-- 4 menšie kompaktné štvorce --> 
+    <div class="grid-container" style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;"> 
+         
+        <!-- Karta 1 --> 
+        <label for="cb1" class="ukol-card" id="card1"> 
+            <div style="width: 100%; display: flex; align-items: center; justify-content: center; position: relative;"> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-right: 2px;"></div> 
+                <img src="https://i.ibb.co/6RmmXr3F/erb.png" alt="erb" border="0" style="width: 20px; height: auto; flex-shrink: 0; filter: brightness(0.9) saturate(0.8) sepia(1);" /> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-left: 2px;"></div> 
+            </div> 
+            <span style="color: #c91a1a; font-size: 1.2rem; font-family: 'Great Vibes', cursive; letter-spacing: 0.5px; line-height: 1; margin-bottom: 2px;">Zadanie 1</span> 
+        </label> 
+
+        <!-- Karta 2 --> 
+        <label for="cb2" class="ukol-card" id="card2"> 
+            <div style="width: 100%; display: flex; align-items: center; justify-content: center; position: relative;"> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-right: 2px;"></div> 
+                <img src="https://i.ibb.co/6RmmXr3F/erb.png" alt="erb" border="0" style="width: 20px; height: auto; flex-shrink: 0; filter: brightness(0.9) saturate(0.8) sepia(1);" /> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-left: 2px;"></div> 
+            </div> 
+            <span style="color: #c91a1a; font-size: 1.2rem; font-family: 'Great Vibes', cursive; letter-spacing: 0.5px; line-height: 1; margin-bottom: 2px;">Zadanie 2</span> 
+        </label> 
+
+        <!-- Karta 3 --> 
+        <label for="cb3" class="ukol-card" id="card3"> 
+            <div style="width: 100%; display: flex; align-items: center; justify-content: center; position: relative;"> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-right: 2px;"></div> 
+                <img src="https://i.ibb.co/6RmmXr3F/erb.png" alt="erb" border="0" style="width: 20px; height: auto; flex-shrink: 0; filter: brightness(0.9) saturate(0.8) sepia(1);" /> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-left: 2px;"></div> 
+            </div> 
+            <span style="color: #c91a1a; font-size: 1.2rem; font-family: 'Great Vibes', cursive; letter-spacing: 0.5px; line-height: 1; margin-bottom: 2px;">Zadanie 3</span> 
+        </label> 
+
+        <!-- Karta 4 --> 
+        <label for="cb4" class="ukol-card" id="card4"> 
+            <div style="width: 100%; display: flex; align-items: center; justify-content: center; position: relative;"> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-right: 2px;"></div> 
+                <img src="https://i.ibb.co/6RmmXr3F/erb.png" alt="erb" border="0" style="width: 20px; height: auto; flex-shrink: 0; filter: brightness(0.9) saturate(0.8) sepia(1);" /> 
+                <div class="ciarka" style="flex-grow: 1; height: 1px; background-color: #ffd700; opacity: 0.8; margin-left: 2px;"></div> 
+            </div> 
+            <span style="color: #c91a1a; font-size: 1.2rem; font-family: 'Great Vibes', cursive; letter-spacing: 0.5px; line-height: 1; margin-bottom: 2px;">Zadanie 4</span> 
+        </label> 
+
+    </div> 
+
+    <!-- Výsuvné okná --> 
+    <div class="obsah-zlozka obsah-zlozka-1"> 
+        <div style="background-color: #faf9f6; border: 2px solid #c91a1a; border-top: 4px solid #c91a1a; padding: 18px; border-radius: 4px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); text-align: justify;"> 
+            <h4 style="color: #c91a1a; margin-top: 0; font-family: serif; border-bottom: 1px solid #ffd700; padding-bottom: 8px; font-size: 1.05rem;">Čistokrvnosť verzus talent</h4> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.8rem;">V čarodejníckom svete sa už celé stáročia vedie spor o tom, čo je dôležitejšie – <font color="#c91a1a"><b>pôvod alebo schopnosti?</b></font> Zakladateľ Zmijozelskej koleje, <font color="#000000"><b>Salazar Zmijozel</b></font>, bol presvedčený, že mágiu by sa mali učiť iba deti pochádzajúce z čistokrvných čarodejníckych rodín. Podľa neho mali práve ony v krvi silu a nadanie, ktoré ich predurčovalo stať sa veľkými čarodejníkmi.</p> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">Zamyslite sa nad týmto tvrdením a <font color="#c91a1a"><b>napíšte úvahu <font color="#000000"><b>(minimálne 200 slov)</b></font></b></font>, <font color="#c91a1a"><b>v ktorej sa pokúsite vyjadriť vlastný názor na danú problematiku.</b></font> Môžete použiť i príklady známych čarodejníkov a uviesť, ako sa ich pôvod premietol do ich života a úspechov.</p> 
+        </div> 
+    </div> 
+
+    <div class="obsah-zlozka obsah-zlozka-2"> 
+        <div style="background-color: #faf9f6; border: 2px solid #c91a1a; border-top: 4px solid #c91a1a; padding: 18px; border-radius: 4px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); text-align: justify;"> 
+            <h4 style="color: #c91a1a; margin-top: 0; font-family: serif; border-bottom: 1px solid #ffd700; padding-bottom: 8px; font-size: 1.05rem;">Vznik Prasiniek</h4> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.8rem;">Prasinky, jedna z najobľúbenejších čarodejníckych dediniek v Británii, nachádzajúca sa severozápadne od Bradavíc. Sú dostatočne blízko školy, a tak počas školského roka pravidelne otvárajú svoje brány pre všetkých obyvateľov hradu.</p> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.8rem;">Zamýšľali ste sa však niekedy nad tým, <font color="#c91a1a"><b>ako vznikli? Kto ich založil a prečo?</b></font> Boli tu skôr Bradavice a Prasinky boli zámerne vybudované v ich blízkosti? Alebo to bolo naopak a bradavickí zakladatelia postavili školu na tomto mieste práve pre obyvateľov dediny?</p> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">Rozpíšte sa na túto tému na <font color="#000000"><b>minimálne 250 slov.</b></font></p> 
+        </div> 
+    </div> 
+
+    <div class="obsah-zlozka obsah-zlozka-3"> 
+        <div style="background-color: #faf9f6; border: 2px solid #c91a1a; border-top: 4px solid #c91a1a; padding: 18px; border-radius: 4px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); text-align: justify;"> 
+            <h4 style="color: #c91a1a; margin-top: 0; font-family: serif; border-bottom: 1px solid #ffd700; padding-bottom: 8px; font-size: 1.05rem;">List vynálezcu</h4> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.8rem;"><em>„História nie je to, čo sa stalo. História je to, čo sme si zapamätali...“</em></p> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.8rem;">Vžite sa do psychologického rozpoloženia <font color="#c91a1a"><b>Chroniculusa Punneta</b></font>, niekdajšieho historika a údajného vynálezcu kúzla Informous, počas jeho pobytu v Nemocnici sv. Munga (obdobie pred rokom 1985). Napíšte <font color="#c91a1a"><b>emocionálne vybičovaný list</b></font> jeho dlhoročnému priateľovi z mladosti.</p> 
+             
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-top: 10px; margin-bottom: 0;">V texte presvedčivo zachyťte hnev génia, ktorý sa cíti okradnutý o svoju prácu, paranoju zo sprisahania ministerstva, ale aj trhliny v jeho vlastnej pamäti. Rozsah <b>minimálne 200 slov. (Nebránim sa ani grafickému spracovaniu).</b></p> 
+        </div> 
+    </div> 
+
+    <div class="obsah-zlozka obsah-zlozka-4"> 
+        <div style="background-color: #faf9f6; border: 2px solid #c91a1a; border-top: 4px solid #c91a1a; padding: 18px; border-radius: 4px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); text-align: justify;"> 
+            <h4 style="color: #c91a1a; margin-top: 0; font-family: serif; border-bottom: 1px solid #ffd700; padding-bottom: 8px; font-size: 1.05rem;"><font color="#c91a1a"><b>Archívny nález</b></font></h4> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0.8rem;">Vytvorte v ľubovoľnom grafickom programe <font color="#c91a1a"><b>starú, vyblednutú stránku z Denného veštca alebo tajnú zložku z Odboru záhad</b></font>, ktorá zachytáva prelomovú udalosť z minulosti čarodejníckeho sveta. (Môže ísť napríklad o novinovú správu z roku 1926 o vyčíňaní Gellerta Grindelwalda v Európe, alebo o ikonické zatknutie Siriusa Blacka v roku 1981.) Nezabudnite pridať „pohyblivý“ čiernobiely obrázok.</p> 
+            <p style="color: #2c2c2c; font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">Nechajte prehovoriť minulosť a ukážte, ako historické udalosti formovali svet, v ktorom žijeme dnes. Rozsah <b>minimálne 200 slov.</b></p> 
+        </div> 
+    </div> 
+
+    <!-- Jednotný rozostup nad oddeľovačom --> 
+    <br><br> 
+    <center><img src="https://i.ibb.co/7NWVySB/delitko.png" width=75% border="0" /></center><br>
+    <!-- Jednotný rozostup pod oddeľovačom --> 
+    <br><br> 
+
+    <!-- Nadpis: Spôsoby odovzdania (vľavo, s dvojbodkou, podčiarknutý, menší) --> 
+    <div style="max-width: 90%; margin: 0.5rem auto 0.6rem auto; text-align: left;"> 
+        <h3 style="color: #c91a1a; font-size: 1.5rem; font-family: 'Great Vibes', cursive; margin: 0; padding-bottom: 3px; border-bottom: 1px solid #c91a1a; display: inline-block; letter-spacing: 0.5px;">Spôsoby odovzdania:</h3> 
+    </div> 
+
+    <!-- Inštrukcie k odovzdávaniu --> 
+    <div style="max-width: 90%; margin: 0 auto; text-align: justify; line-height: 1.35; color: #d8b37e;"> 
+        <p style="margin-bottom: 0.6rem;"><b><font color="#c91a1a">•</font></b> Úlohu môžete zasielať pomocou <font color="#c91a1a"><b>formulára</b></font> nižšie, <font color="#c91a1a"><b>na Discord (isabellearden)</b></font> alebo <font color="#c91a1a"><b>na email (isabelle.arden@revelio.cz)</b></font>, avšak v odosielacom formulári vždy uveďte, kde mám Vašu úlohu hľadať. V opačnom prípade nemusí byť ohodnotená.</p> 
+         
+        <p style="margin-bottom: 0;"><b><font color="#c91a1a">•</font></b> Termín odovzdania je do <font color="#c91a1a"><b><font size="+1">31.10.2026</font></b></font>.</p> 
+    </div> 
+
+    <!-- Zmenšený podpis zarovnaný vpravo (šírka 70px) --> 
+    <div style="max-width: 90%; margin: 1.5rem auto 0.8rem auto; text-align: right;"> 
+        <img src="https://i.ibb.co/tPtxVkk/pppp.png" alt="pppp" border="0" style="width: 70px; height: auto; display: inline-block;" /> 
+    </div> 
+
+    <!-- Dolná čiara identická s hornou --> 
+    <div style="width: 100%; height: 16px; background-color: #c91a1a; border-radius: 2px; box-shadow: 0 3px 8px rgba(0,0,0,0.4); margin-top: 0.4rem;"></div> 
+
+    <!-- Kontajner pre ikonky s tooltipmi pod spodnou čiarou --> 
+    <div style="margin-top: 0.6rem; display: flex; gap: 20px; align-items: center; justify-content: center;"> 
+         
+        <!-- Discord ikona s tooltipom --> 
+        <div class="tooltip-container"> 
+            <a href="https://discord.com" target="_blank" title="Discord" style="display: inline-block;"> 
+                <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid #000; background: #382219; padding: 4px; box-sizing: border-box; display: block;"> 
+            </a> 
+            <span class="tooltip-text">isabellearden</span> 
+        </div> 
+
+        <!-- Email / Obálka ikona s tooltipom --> 
+        <div class="tooltip-container"> 
+            <a href="mailto:isabelle.arden@revelio.cz" target="_blank" title="Pošta / Email" style="display: inline-block;"> 
+                <svg style="width: 30px; height: 30px; border-radius: 50%; border: 1px solid #000; background: #382219; padding: 5px; box-sizing: border-box; display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+                    <path d="M4 7.00005L10.9416 11.1649C11.5841 11.5505 12.4159 11.5505 13.0584 11.1649L20 7.00005M5 18H19C20.1046 18 21 17.1046 21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18Z" stroke="#ffd700" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/> 
+                </svg> 
+            </a> 
+            <span class="tooltip-text">isabelle.arden@revelio.cz</span> 
+        </div> 
+
+    </div> 
+
+</div> 
+
+</div>
